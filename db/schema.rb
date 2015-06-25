@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624231809) do
+ActiveRecord::Schema.define(version: 20150625192055) do
 
   create_table "bins", force: true do |t|
     t.string   "borough"
@@ -25,18 +25,18 @@ ActiveRecord::Schema.define(version: 20150624231809) do
   end
 
   create_table "friends", force: true do |t|
-    t.integer  "user_id"
     t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "original_user_id"
   end
 
   create_table "points", force: true do |t|
     t.integer  "user_id"
     t.integer  "bin_id"
-    t.integer  "points"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_points"
   end
 
   create_table "users", force: true do |t|
