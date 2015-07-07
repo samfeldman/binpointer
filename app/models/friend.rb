@@ -1,4 +1,4 @@
-class Friends < ActiveRecord::Base
+class Friend < ActiveRecord::Base
 	
 	belongs_to :original_user,
 		class_name: "User", 
