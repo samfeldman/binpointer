@@ -9,12 +9,12 @@ class User < ActiveRecord::Base
 	has_many :bins, through: :points
 
 	has_many :friendships,
-		class_name: "User",
+		class_name: "Friend",
 		foreign_key: :friend_id,
 		dependent: :destroy
 
 	has_many :originaluserships, 
-		class_name: "User",
+		class_name: "Friend",
 		foreign_key: :original_user_id,
 		dependent: :destroy
 

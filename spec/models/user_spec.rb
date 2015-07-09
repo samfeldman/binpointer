@@ -55,13 +55,13 @@ describe User do
 
 		it { should have_many(:bins).through(:points) }
 		
-		it { should have_many(:friendships).class_name('User').with_foreign_key(:friend_id).dependent(:destroy) }
+		it { should have_many(:friendships).class_name('Friend').with_foreign_key(:friend_id).dependent(:destroy) }
 		
-		it { should have_many(:originaluserships).class_name('User').with_foreign_key(:original_user_id).dependent(:destroy) }
+		it { should have_many(:originaluserships).class_name('Friend').with_foreign_key(:original_user_id).dependent(:destroy) }
 		
-		it { should have_many(:friends).through(:originaluserships).dependent(:destroy) }
+		it { should have_many(:friends).through(:originaluserships).source(:friend) }
 
-		it { should have_many(:originalusers).through(:friendships).dependent(:destroy) }
+		it { should have_many(:original_users).through(:friendships).source(:original_user) }
 
 	end
 
